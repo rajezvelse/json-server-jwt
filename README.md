@@ -1,6 +1,6 @@
 # JSON API server with JWT authentication
 
-A light weight, ready to run json rest api for for front-end developers who need a quick back-end for prototyping and mocking .
+A light weight, ready to run json rest api for front-end developers who need a quick back-end for prototyping and mocking .
 
 ![banner](./banner.png)
 
@@ -54,7 +54,7 @@ Response:
         "id": 1,
         "username": "admin",
         "password": "admin",
-        "email": "admin@json-server.com"
+        "email": "admin@example.com"
     }
 }
 ```
@@ -113,7 +113,7 @@ Response:
     "id": 1,
     "username": "admin",
     "password": "admin",
-    "email": "admin@json-server.com"
+    "email": "admin@example.com"
   }
 ]
 ```

@@ -4,7 +4,7 @@
       "id": 1,
       "username": "admin",
       "password": "admin",
-      "email": "admin@json-server.com"
+      "email": "admin@example.com"
     }
   ],
   "roles": [],
