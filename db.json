@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@json-server.com"
+    }
+  ],
+  "roles": [],
+  "password_reset_tokens": []
+}

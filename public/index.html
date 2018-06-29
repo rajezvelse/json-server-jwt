@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="NONE,NOARCHIVE" />
+
+
+    <title>Api Root – JSON REST API server</title>
+
+    <link rel="shortcut icon" href="./assets/rest_framework/img/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="./assets/rest_framework/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/rest_framework/css/bootstrap-tweaks.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="./assets/rest_framework/css/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/rest_framework/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/main.css" />
+
+</head>
+
+<body class="">
+
+    <div class="wrapper">
+
+        <div class="navbar navbar-static-top navbar-inverse">
+            <div class="container">
+                <span>
+
+                    <a class='navbar-brand' rel="nofollow" href='https://github.com/typicode/json-server' target="_blank">
+                        JSON REST API server
+                    </a>
+
+                </span>
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="/db" download class="btn btn-primary" style="padding: 5px 10px;margin-top: 7px;">Download DB</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!-- Content -->
+            <div id="content">
+
+                <div class="content-main">
+
+                    <div class="request-info" style="clear: both">
+                        <pre class="prettyprint"><b>GET</b> /</pre>
+                    </div>
+
+                    <div class="response-info">
+                        <pre class="prettyprint"><span class="meta nocode"><b>To access and modify resources, you can use any HTTP method</b>
+<b>Allow:</b> <span class="lit">GET, POST, PUT, PATCH, DELETE, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+</span>
+<span id="resources"></span>
+<span id="custom-routes"></span></pre>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- ./wrapper -->
+
+
+    <script src="./assets/rest_framework/js/jquery-1.11.3.min.js"></script>
+    <script src="./assets/rest_framework/js/ajax-form.js"></script>
+    <script src="./assets/rest_framework/js/csrf.js"></script>
+    <script src="./assets/rest_framework/js/bootstrap.min.js"></script>
+    <script src="./assets/rest_framework/js/prettify-min.js"></script>
+    <script src="./assets/rest_framework/js/default.js"></script>
+    <script src="./assets/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').ajaxForm();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
