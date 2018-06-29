@@ -25,7 +25,7 @@ Demo user : admin / admin
 ### Authentication
 Request:
 ```bash
-curl -XPOST -H "Content-Type: application/json" -d '{"email": "admin", "password": "admin"}' http://localhost:3000/api-token-auth 
+curl -XPOST -H "Content-Type: application/json" -d '{"email": "admin@example.com", "password": "admin"}' http://localhost:3000/api-token-auth 
 ```
 Response:
 ```json
@@ -35,7 +35,8 @@ Response:
     "user": {
         "id": 1,
         "username": "admin",
-        "password": "admin"
+        "password": "admin",
+        "email": "admin@example.com"
     }
 }
 ```
@@ -62,7 +63,7 @@ Response:
 ### Password reset
 Request:
 ```bash
-curl -XPOST -H "Content-Type: application/json" -d '{"email": "admin"}' http://localhost:3000/api-password-reset
+curl -XPOST -H "Content-Type: application/json" -d '{"email": "admin@example.com"}' http://localhost:3000/api-password-reset
 ```
 Response:
 ```json

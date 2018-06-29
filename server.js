@@ -20,7 +20,7 @@ var anonymousUrls = [
 
 const server = jsonServer.create();
 const router = jsonServer.router(source);
-const middlewares =  [
+const middlewares = [
   jsonServer.defaults({
     noCors: true
   }),
@@ -56,12 +56,21 @@ server.use(jsonServer.bodyParser)
 ----------------------------------------------------*/
 // Set some defaults (required if your JSON file is empty)
 var db = low(source, { storage: fileAsync });
-db.defaults({ users: [], roles: [], password_reset_tokens: [] })
+db.defaults({ users: [], roles: [], password_reset_tokens: [], user_settings: [] })
   .write()
 
 
 // Middleware actions
 server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+  //intercepts OPTIONS method
+  if ('OPTIONS' === req.method) {
+    //respond with 200
+    res.send(200);
+  }
 
   /*             Autorization check
   -------------------------------------------------------*/
@@ -117,7 +126,7 @@ server.post('/api-token-auth', (req, res) => {
     return res.status(500).send('Email or password not provided');
   }
 
-  
+
   var user = db.get('users')
     .filter(user => user.username === data.email || user.email === data.email)
     .value();
@@ -133,7 +142,12 @@ server.post('/api-token-auth', (req, res) => {
   var token = jwt.sign({ id: user.id }, appSecretKey, {
     expiresIn: 86400 // expires in 24 hours
   });
-  res.status(200).send({ auth: true, token: token, user: user });
+
+  var user_settings = db.get('user_settings')
+    .find({ user_id: user.id })
+    .value() || {};
+
+  res.status(200).send({ auth: true, token: token, user: user, user_settings: user_settings });
 
 });
 
@@ -154,12 +168,16 @@ server.get('/api-token-refresh', (req, res) => {
       expiresIn: 86400 // expires in 24 hours
     });
 
-    
+
     var user = db.get('users')
       .find({ id: decoded.id })
       .value()
 
-    res.status(200).send({ auth: true, token: token, user: user });
+    var user_settings = db.get('user_settings')
+      .find({ user_id: user.id })
+      .value() || {};
+
+    res.status(200).send({ auth: true, token: token, user: user, user_settings: user_settings });
   });
 
 })
@@ -187,7 +205,7 @@ server.post('/users', (req, res, next) => {
 -------------------------------------------------------*/
 server.post('/users/change-password', (req, res) => {
 
-  
+
   var user = db.get('users')
     .find({ id: req.userId }).value();
 
@@ -216,7 +234,7 @@ server.post('/api-password-reset', (req, res) => {
 
   var email = req.body.email;
 
-  
+
   var user = db.get('users')
     .filter(user => user.username === email || user.email === email)
     .value();
@@ -248,7 +266,7 @@ server.post('/api-password-reset', (req, res) => {
 -------------------------------------------------------*/
 server.post('/api-password-reset-verify', (req, res) => {
 
-  
+
 
   var token = db.get('password_reset_tokens')
     .find({ token: req.body.token })
@@ -264,7 +282,7 @@ server.post('/api-password-reset-verify', (req, res) => {
 -------------------------------------------------------*/
 server.post('/api-password-reset-confirm', (req, res) => {
 
-  
+
 
   var token = db.get('password_reset_tokens')
     .find({ token: req.body.token })
