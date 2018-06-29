@@ -101,6 +101,23 @@ Response:
 Password changed
 ```
 
+### Access routes
+Request:
+```bash
+curl -XGET -H "Content-Type: application/json" -H "Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" http://localhost:3000/users
+```
+Response:
+```json
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@json-server.com"
+  }
+]
+```
+
 ### [View full documentation](https://github.com/typicode/json-server/blob/master/README.md)
 
 ## Source
