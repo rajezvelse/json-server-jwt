@@ -297,7 +297,7 @@ server.post('/api-password-reset-confirm', (req, res) => {
     .write()
     .then(() => {
       db.get('password_reset_tokens')
-        .remove({ token: req.body.token }).write();
+        .remove({ user_id: token.user_id }).write();
 
       console.log('' +
         '========================================\n' +
