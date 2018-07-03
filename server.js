@@ -137,6 +137,12 @@ server.post('/api-token-auth', (req, res) => {
   }
 
   user = user[0];
+  
+  if(user.password !== data.password) {
+    console.log("Authentication failed");
+    return res.status(500).send('Invalid credentials');
+  }
+
   console.log("Authentication succeeded");
   // create a token
   var token = jwt.sign({ id: user.id }, appSecretKey, {
