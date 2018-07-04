@@ -44,7 +44,7 @@ Response:
 ### Token refresh
 Request:
 ```bash
-curl -XGET -H "Content-Type: application/json"  -H "Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" http://localhost:3000/api-token-refresh 
+curl -XGET -H "Content-Type: application/json"  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" http://localhost:3000/api-token-refresh 
 ```
 Response:
 ```json
@@ -95,7 +95,7 @@ Password reset success
 ### Change password
 Request:
 ```bash
-curl -XPOST -H "Content-Type: application/json"  -H "Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" -d '{"password": "admin123", "new_password": "admin"}' http://localhost:3000/users/change-password 
+curl -XPOST -H "Content-Type: application/json"  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" -d '{"password": "admin123", "new_password": "admin"}' http://localhost:3000/users/change-password 
 ```
 Response:
 ```json
@@ -105,7 +105,7 @@ Password changed
 ### Access routes
 Request:
 ```bash
-curl -XGET -H "Content-Type: application/json" -H "Authorization: Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" http://localhost:3000/users
+curl -XGET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTMwMjU5MzE3LCJleHAiOjE1MzAzNDU3MTd9.z_mknTvzY_hl4ulxNSEvn6MqHLrlcyALvsyih1oJGyA" http://localhost:3000/users
 ```
 Response:
 ```json

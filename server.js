@@ -84,7 +84,7 @@ server.use((req, res, next) => {
     res.sendStatus(401).send('Unauthorized')
   }
 
-  token = token.replace('Barear ', '');
+  token = token.replace('Bearer ', '');
 
   jwt.verify(token, appSecretKey, function (err, decoded) {
     if (err)
@@ -163,7 +163,7 @@ server.post('/api-token-auth', (req, res) => {
 server.get('/api-token-refresh', (req, res) => {
 
   var token = req.headers['authorization'];
-  token = token.replace('Barear ', '');
+  token = token.replace('Bearer ', '');
 
   jwt.verify(token, appSecretKey, function (err, decoded) {
     if (err)
