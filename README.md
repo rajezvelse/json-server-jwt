@@ -4,10 +4,28 @@ A light weight, ready to run json rest api for front-end developers who need a q
 
 ![banner](./banner.png)
 
-## Build and start server
+## Standalone server 
+```bash
+git clone https://github.com/rajezvelse/json-server-jwt.git
+
+cd json-server-jwt
+
+npm install
+
+node server.js
+```
+
+The server will be running in port 3000. 
+
+To view the server running, open [http://localhost:3000](http://localhost:3000)
+
+Demo user : admin / admin
+
+
+## Build and start server using Docker
 
 ```bash
-git clone
+git clone https://github.com/rajezvelse/json-server-jwt.git
 
 cd json-server-jwt
 
@@ -17,9 +35,7 @@ docker run -dti --name="json-api" -p "3000:3000" json-jwt:api
 ```
 
 The server will be running in port 3000. 
-
 To view the server running, open [http://localhost:3000](http://localhost:3000)
-
 Demo user : admin / admin
 
 ### Authentication
